@@ -1,2 +1,0 @@
-# publicis
-practice projects
