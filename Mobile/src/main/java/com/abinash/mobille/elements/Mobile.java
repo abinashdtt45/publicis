@@ -23,6 +23,9 @@ public class Mobile {
 //	}
 
 	public void status() {
+		screen.status();
+		camera.status();
+		speaker.status();
 		System.out.println("The mobile is now working");
 	}
 
