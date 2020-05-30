@@ -6,11 +6,8 @@ import com.abinash.mockito.interfaces.CustomerDAO;
 
 public class CustomerDAOImpl implements CustomerDAO {
 
-	public boolean addCustomer(Customer customer) throws DAOException {
-		if ("connection not done successfully" != null) {
-			return false;
-		}
-		return true;
+	public void addCustomer(Customer customer) throws DAOException {
+		System.out.println("The customer has been added");
 	}
 
 }

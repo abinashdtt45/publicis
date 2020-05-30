@@ -1,8 +1,8 @@
 package com.abinash.mockito.service;
 
-import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,10 +29,23 @@ public class CustomerValidationImplTest {
 		validationImpl.setDaoImpl(dao);
 
 		Customer customer = new Customer();
-		when(dao.addCustomer(customer)).thenReturn(new Boolean(true));
+		customer.setNameString("Abinash");
+		doNothing().when(dao).addCustomer(customer);
 		boolean result = validationImpl.checkLength(customer);
-		assertTrue(result);
 		verify(dao).addCustomer(customer);
+
+	}
+
+	@Test(expected = DAOException.class)
+	public void checking_Whether_throws_Exception() throws DAOException {
+		CustomerValidationImpl validationImpl = new CustomerValidationImpl();
+		validationImpl.setDaoImpl(dao);
+
+		Customer customer = new Customer();
+		customer.setNameString("Abinash");
+		doThrow(DAOException.class).when(dao).addCustomer(customer);
+		boolean result = validationImpl.checkLength(customer);
+
 	}
 
 }

@@ -10,14 +10,12 @@ public class CustomerValidationImpl implements CustomerValidation {
 	private CustomerDAOImpl daoImpl;
 
 	public boolean checkLength(Customer customer) throws DAOException {
-		String nameString = customer.getNameString();
-		if (nameString.length() < 4) {
-			return false;
-		}
 		try {
-			boolean result = daoImpl.addCustomer(customer);
-			if(result == false) {
+			String nameString = customer.getNameString();
+			if (nameString.length() < 4) {
 				return false;
+			} else {
+				daoImpl.addCustomer(customer);
 			}
 		} catch (DAOException e) {
 			throw new DAOException();
