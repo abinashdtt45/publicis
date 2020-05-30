@@ -1,4 +1,4 @@
-package com.abiansh.mockito.controller;
+package com.abinash.mockito.controller;
 
 import com.abinash.mockito.Customer;
 import com.abinash.mockito.exceptions.DAOException;
