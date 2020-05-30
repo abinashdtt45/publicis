@@ -15,7 +15,10 @@ public class CustomerValidationImpl implements CustomerValidation {
 			return false;
 		}
 		try {
-			daoImpl.addCustomer(customer);
+			boolean result = daoImpl.addCustomer(customer);
+			if(result == false) {
+				return false;
+			}
 		} catch (DAOException e) {
 			throw new DAOException();
 		}

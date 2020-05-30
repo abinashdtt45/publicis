@@ -5,6 +5,6 @@ import com.abinash.mockito.exceptions.DAOException;
 
 public interface CustomerDAO {
 
-	void addCustomer(Customer customer) throws DAOException;
+	boolean addCustomer(Customer customer) throws DAOException;
 
 }
